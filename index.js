@@ -1,4 +1,4 @@
-function submitData(userName, userEmail) {
+function submitData(Name, Email) {
     return fetch('http://localhost:3000/users', {
             method: 'POST',
             headers: {
@@ -6,8 +6,8 @@ function submitData(userName, userEmail) {
                 'Accept': 'application/json'
             },
             body: JSON.stringify({
-                name: `${userName}`,
-                email: `${userEmail}`,
+                name: `${Name}`,
+                email: `${Email}`,
             }),
         })
         .then(response => response.json())
@@ -21,14 +21,14 @@ function submitData(userName, userEmail) {
 
 // handles the POST request response, retrieves the new id value and appends it to the DOM
 function renderObjId(obj) {
-    const newElm = document.createElement('p');
-    newElm.innerHTML = obj.id;
-    document.querySelector('body').appendChild(newElm);
+    const createElement = document.createElement('p');
+    createElement.innerHTML = obj.id;
+    document.querySelector('body').appendChild(createElement);
 }
 
 // handles a failed POST request using catch, appends the error message to the DOM
 function renderError(errObj) {
-    const newElm = document.createElement('p');
-    newElm.innerHTML = errObj.message;
-    document.querySelector('body').appendChild(newElm);
+    const createElement = document.createElement('p');
+    createElement.innerHTML = errObj.message;
+    document.querySelector('body').appendChild(createElement);
 }
